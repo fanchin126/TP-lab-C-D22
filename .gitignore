@@ -1,0 +1,11 @@
+# Ejecutables de Windows y Linux
+*.exe
+*.out
+artemis_sim
+test_leo
+
+# Archivos objeto compilados
+*.o
+
+# Carpetas temporales de VS Code
+.vscode/
