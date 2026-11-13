@@ -1,4 +1,3 @@
-
 #ifndef SIMULADOR_H
 #define SIMULADOR_H
 
@@ -7,7 +6,7 @@
 #define M_TIERRA 5.972e24
 #define R_TIERRA 6371000.0
 #define M_ORION 33000.0
-#define PI 3.14159265358979323846
+// La constante PI manual fue eliminada; se usara M_PI de <math.h>
 
 // Estructura que representa el estado de la nave Orion
 typedef struct {
@@ -25,17 +24,11 @@ typedef struct {
 
 } NaveOrion;
 
-// Prototipos de las funciones
-void inicializar_nave(NaveOrion *nave, double altitud_inicial);
-
-void calcular_dinamica_orbital(NaveOrion *nave);
-
-void calcular_fuerzas(NaveOrion *nave);
-
-void aplicar_pulso_lateral(NaveOrion *nave,
-                           double aceleracion,
-                           double delta_t);
-
-void imprimir_reporte_telemetria(const NaveOrion *nave);
+// Prototipos de las funciones (ahora retornan int para control de errores)
+int inicializar_nave(NaveOrion *nave, double altitud_inicial);
+int calcular_dinamica_orbital(NaveOrion *nave);
+int calcular_fuerzas(NaveOrion *nave);
+int aplicar_pulso_lateral(NaveOrion *nave, double aceleracion, double delta_t);
+int imprimir_reporte_telemetria(const NaveOrion *nave);
 
 #endif
